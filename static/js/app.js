@@ -14,19 +14,14 @@ function init() {
     showBubbleChart(940,dataSet);
 
     var optionMenu = d3.select("#selDataset");
-
+    // Appending some option tags for the dropdown
     data.names.forEach(function(name){
       optionMenu.append("option").text(name);
     });
  })
 }
 
-function unpack(rows, index) {
-    return rows.map(function(row) {
-      return row[index];
-    });
-  }
-
+// Changes the value based on the selection from the dropdown
 function optionChanged(value) {
     option = value;
     showMetaData(option,dataSet);
@@ -34,9 +29,11 @@ function optionChanged(value) {
     showBubbleChart(option,dataSet);
 }
 
+// Changes what is sown as different IDs are selected to view on the page
 function showMetaData(option,dataSet) {
     var metadata = dataSet.metadata.filter(row => row.id == option);
-    d3.select("#sample-metadata").html(displayObject(metadata[0]));   
+    d3.select("#sample-metadata").html(displayObject(metadata[0]));  
+    console.log(metadata); 
 }
 
 function displayObject(obj) {
