@@ -39,11 +39,7 @@ function showMetaData(option,dataSet) {
 function displayObject(obj) {
     var str = "";
     Object.entries(obj).forEach(([key,value]) => {
-        str += `<br>${key}:${value}</br>`;
-        // if(key=="wfreq"){
-        //     buildGauge(value);
-        //     console.log("gauge value is:" +value);
-        // }     
+        str += `<br>${key}:${value}</br>`; 
     });
     return str;
 }
